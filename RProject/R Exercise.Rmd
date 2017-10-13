@@ -1,0 +1,35 @@
+---
+title: "R Exercise"
+author: "Fan"
+date: "13 October 2017"
+output: html_document
+---
+
+
+```{r cars}
+10 + 1 
+mass = 4
+sin(1)
+```
+
+```{bash}
+ls .
+```
+
+```{python}
+
+```
+
+```{r}
+x <- 42
+y = 42
+```
+```{r}
+v = 1:10
+v*2
+```
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+```
+
