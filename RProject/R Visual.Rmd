@@ -85,4 +85,8 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
 ```
+```{r}
+az.countries <- gapminder[starts.with %in% c("C", "U"),  ]
+ggplot(data = az.countries, aes( x=year, y=gdpPercap)) + facet_wrap( ~ country) +  geom_line()
+```
 
