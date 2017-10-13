@@ -1,0 +1,25 @@
+---
+title: "R Data"
+author: "Fan"
+date: "13 October 2017"
+output: html_document
+---
+
+```{r}
+cat_file <- "https://raw.githubusercontent.com/COMBINE-Australia/RNAseq-R/gh-pages/data/feline-data.csv"
+download.file(cat_file, destfile="feline-data.csv")
+?download.file
+getwd()
+file.exists("feline-data.csv")
+cats <- read.csv("feline-data.csv")
+cats
+cats$weight
+cats[2,]
+cats[,2]
+cats$weight * 100
+```
+```{r}
+tmp = read.delim("feline-data.csv")
+tmp
+```
+
