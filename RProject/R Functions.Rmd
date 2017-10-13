@@ -121,6 +121,7 @@ calcGDP(head(gapminder))
 calcGDP(head(gapminder), country="Afghanistan")
 calcGDP(gapminder, country="China")
 calcGDP(gapminder, country="China", year = 2000)
+calcGDP(gapminder, country=c("China","India"), year = c(1990:2000))
         
 ```
 
