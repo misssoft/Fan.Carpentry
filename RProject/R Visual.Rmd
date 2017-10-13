@@ -1,0 +1,68 @@
+---
+title: "R Visual"
+author: "Fan"
+date: "13 October 2017"
+output: html_document
+---
+
+```{r}
+gapminder_file <- "https://raw.githubusercontent.com/COMBINE-Australia/RNAseq-R/gh-pages/data/gapminder-FiveYearData.csv"
+download.file(gapminder_file, destfile="gapminder-FiveYearData.csv")
+gapminder <- read.csv("gapminder-FiveYearData.csv")
+```
+
+
+```{r}
+library("ggplot2")
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) 
+```
+```{r}
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +  geom_point()
+```
+```{r}
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+```
+```{r}
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
+  geom_point()
+```
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()
+```
+
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+```
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+  geom_line(aes(color=continent)) + geom_point()
+```
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +   geom_point()
+```
+
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) + geom_point(alpha = 0.1) + scale_x_log10() + facet_wrap(~continent)
+```
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm")
+```
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color="orange", size=4) + scale_x_log10() + geom_smooth(method="lm", size=0.5)
+```
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+geom_point(size=3, shape=17) + scale_x_log10() +
+geom_smooth(method="lm", size=1.5)
+```
+```{r}
+starts.with <- substr(gapminder$country, start = 1, stop = 1)
+az.countries <- gapminder[starts.with %in% c("C", "U"),  ]
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +   geom_line() + facet_wrap( ~ country)
+```
+
